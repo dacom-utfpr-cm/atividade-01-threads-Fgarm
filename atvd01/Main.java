@@ -5,7 +5,6 @@ import outros.ThreadRandomSleep;
 public class Main {
     
     public static void main(String[] args) {
-        //Main app = new Main();
         Thread Thread1 =  new Thread(new ThreadRandomSleep());
         Thread Thread2 =  new Thread(new ThreadRandomSleep());
         Thread Thread3 =  new Thread(new ThreadRandomSleep());
@@ -21,8 +20,6 @@ public class Main {
         } catch (InterruptedException e) {
             System.out.println("Pararam-me");
         }
-        //ThreadRandomSleep Thread2 = new ThreadRandomSleep();
-        //ThreadRandomSleep Thread3 = new ThreadRandomSleep();
         
     }
 }
