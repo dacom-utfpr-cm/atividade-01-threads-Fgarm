@@ -19,6 +19,12 @@ public class ReadRandomInterval implements Runnable{
         this.intervalo = 10;
     }
 
+    public ReadRandomInterval(int tempo) throws FileNotFoundException {
+        File myObj = new File("outros/umarquivo.txt");
+        this.text = new Scanner(myObj);
+        this.intervalo = tempo;
+    }
+
     public ReadRandomInterval(String arquivo, int tempo) throws FileNotFoundException {
         File myObj = new File(arquivo);
         this.text = new Scanner(myObj);
@@ -27,17 +33,16 @@ public class ReadRandomInterval implements Runnable{
 
     @Override
     public void run(){
-        
-        try (this.text) {
-            while (this.text.hasNextLine()) {
-                String data = this.text.nextLine();
-                System.out.println(data);
-                try {
-                    DomirIntervalo();
-                } catch (InterruptedException e) {
-                    System.out.println("Não me deixaram dormir :(");
-                }
+        while (this.text.hasNextLine()) {
+            String data = this.text.nextLine();
+            System.out.println(data);
+            try {
+                DomirIntervalo();
+            } catch (InterruptedException e) {
+                System.out.println("Não me deixaram dormir :(");
+                break;
             }
         }
+        System.out.println("Morri");
     }
 }
